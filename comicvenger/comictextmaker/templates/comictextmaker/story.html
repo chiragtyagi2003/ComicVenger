@@ -1,0 +1,96 @@
+{% extends 'comictextmaker/base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+  body {
+    /* Set the background image to a random image from the list */
+    background-image: url("{% static random_image %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Center the story box on the screen */
+  .story-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(159, 154, 154, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+  }
+
+  .story-content {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+  }
+
+  .story-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .download-button,
+  .share-button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="story-box">
+  <h1>Avengers Comic Maker</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Your Story</h2>
+      <div class="story-content">
+        <!-- Replace this with the generated AI story -->
+        <p>
+          This is the generated AI story. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis urna vitae mauris tempus posuere at at lectus. Nulla facilisi. In hendrerit ligula vitae dui luctus venenatis. Phasellus fermentum, neque a varius facilisis, libero risus malesuada odio, eu euismod lectus lectus in velit. Fusce egestas elit at risus faucibus, ac pharetra odio volutpat. Nam ac bibendum odio, vel bibendum elit. Duis vel odio leo.
+        </p>
+        <!-- Add more paragraphs as needed -->
+        <p>  This is the generated AI story. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis urna vitae mauris tempus posuere at at lectus. Nulla facilisi. In hendrerit ligula vitae dui luctus venenatis. Phasellus fermentum, neque a varius facilisis, libero risus malesuada odio, eu euismod lectus lectus in velit. Fusce egestas elit at risus faucibus, ac pharetra odio volutpat. Nam ac bibendum odio, vel bibendum elit. Duis vel odio leo.</p>
+      </div>
+      <div class="story-buttons">
+        <button class="download-button" onclick="downloadStory()">Download</button>
+        <button class="share-button" onclick="shareStory()">Share</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to download the story as a text file
+  function downloadStory() {
+    const storyText = document.querySelector('.story-content').innerText;
+    const blob = new Blob([storyText], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'avengers_story.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  // Function to simulate sharing the story (You can implement actual sharing functionality)
+  function shareStory() {
+    alert('Share functionality coming soon!');
+  }
+</script>
+{% endblock %}

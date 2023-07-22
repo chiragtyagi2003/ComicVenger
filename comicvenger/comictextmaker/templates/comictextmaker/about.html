@@ -1,0 +1,101 @@
+{% extends 'comictextmaker/base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+  body {
+    /* Set the background image to a random image from the list */
+    background-image: url("{% static 'comictextmaker/avengers_about.jpg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(169, 163, 163, 0.8);
+    border-radius: 10px;
+  }
+
+  .avengers-logo {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .app-description {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .how-it-works {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+  }
+
+  .step-description {
+    font-size: 18px;
+    max-width: 500px;
+  }
+</style>
+
+<div class="about-container">
+  <img src="{% static 'comictextmaker/avengers_logo.png' %}" alt="Avengers Logo" class="avengers-logo">
+
+  <h1>About Our Web App</h1>
+  <p class="app-description">
+    Our web app allows you to create your own custom comic books featuring your favorite Avengers characters. Bring your stories to life by adding text, speech bubbles, and more.
+  </p>
+
+  <div class="how-it-works">
+    <h2>How It Works</h2>
+    
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-description">
+        Choose your favorite Avengers characters from a wide selection of heroes and villains.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-description">
+        Create a compelling story using our AI-powered story generator or write your own script.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-description">
+        Add text, speech bubbles, and effects to bring your comic book to life.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

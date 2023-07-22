@@ -2,27 +2,76 @@
 <html>
     {% load static %}
 <head>
-    <title>{% block title %}My Website{% endblock %}</title>
+    <title>{% block title %}Avengers Website{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'comictextmaker/style.css' %}">
+    <style>
+        /* CSS for the wrapper div and footer */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Set a dark background color */
+            color: #fff; /* Set font color to white */
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* This makes the main section take up the available space */
+        }
+
+        header {
+            background-color: #0b1014; /* Dark blue header background */
+            padding: 10px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff; /* Set link color to white */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Add smooth color transition on hover */
+        }
+
+        header nav ul li a:hover {
+            color: #f50000; /* Set link color to red on hover (Avengers red color) */
+        }
+
+        footer {
+            background-color: #0b1014; /* Dark blue footer background */
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'comictextmaker:home' %}">Home</a></li>
+                    <li><a href="{% url 'comictextmaker:about' %}">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2023 My Website. All rights reserved.</p>
+        <p>&copy; 2023 Avengers Website. All rights reserved.</p>
     </footer>
 </body>
 </html>

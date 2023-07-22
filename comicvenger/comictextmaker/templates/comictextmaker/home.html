@@ -1,26 +1,88 @@
 {% extends 'comictextmaker/base.html' %}
 
-{% block content %}
-  <h1>Avengers Comic Maker</h1>
-  <p>Create your own comic book featuring your favorite Avengers characters!</p>
+{% block content %} 
+{% load static %}
+<style>
+  body {
+    /* Set a background image related to the Avengers */
+    background-image: url("{% static 'comictextmaker/avengers.jpg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* You can also use a background color as a fallback */
+    background-color: #1a1a1a;
+    color: #ffffff; /* Set the text color to white for better contrast */
+    font-family: 'Arial', sans-serif; /* Use a suitable font family */
+    animation: animateBackground 20s infinite linear;
+  }
 
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Choose Your Hero</h2>
-      <ul>
-        <li>Black Widow</li>
-        <li>Captain America</li>
-        <li>Captain Marvel</li>
-        <li>Deadpool</li>
-        <li>Hulk</li>
-        <li>Iron Man</li>
-        <li>Spider-Man</li>
-        <li>Wolverine</li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-      <h2>Create Your Story</h2>
-      <p>Use the Marvel Universe to create your own story featuring your chosen hero. Add text and speech bubbles to bring your story to life!</p>
+  @keyframes animateBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+    /* Add an Avengers-inspired text color */
+    color: #ff0000;
+  }
+
+  p {
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Style the form input and button */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  input[type="text"] {
+    width: 800px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff0000; /* Add an Avengers-inspired border color */
+    border-radius: 5px;
+    background-color: #ffffff; /* Set the background color of the input */
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+</style>
+
+<h1>Avengers Comic Maker</h1>
+<p>Create your own comic book featuring your favorite Avengers characters!</p>
+
+<div class="row">
+  <div class="col-md-8">
+    <br>
+    <p>Use the Marvel Universe to create your own story featuring your chosen hero. Add text and speech bubbles to bring your story to life!</p>
+    
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <form action="{% url 'comictextmaker:yourcomic' %}">
+        <input type="text" placeholder="Enter your text">
+        <button type="submit">Create</button>
+      </form>
     </div>
   </div>
+</div>
 {% endblock %}
