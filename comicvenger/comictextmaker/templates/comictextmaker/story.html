@@ -54,17 +54,31 @@
 </style>
 
 <div class="story-box">
-  <h1>Avengers Comic Maker</h1>
+  <h1>Marvelous Tales</h1>
   <div class="row">
     <div class="col-md-8">
       <h2>Your Story</h2>
       <div class="story-content">
         <!-- Replace this with the generated AI story -->
+
+        <img src="{% static 'comictextmaker/1.png' %}" height="400" width="700">
+
         <p>
-          This is the generated AI story. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis urna vitae mauris tempus posuere at at lectus. Nulla facilisi. In hendrerit ligula vitae dui luctus venenatis. Phasellus fermentum, neque a varius facilisis, libero risus malesuada odio, eu euismod lectus lectus in velit. Fusce egestas elit at risus faucibus, ac pharetra odio volutpat. Nam ac bibendum odio, vel bibendum elit. Duis vel odio leo.
+          {{ story1 }}
         </p>
+
+        <img src="{% static 'comictextmaker/2.png' %}" height="400" width="700">
+
+        {{ story2 }}
+        
+        <img src="{% static 'comictextmaker/3.png' %}" height="400" width="700">
+
+
+        {{ story3 }}
+
+
+    
         <!-- Add more paragraphs as needed -->
-        <p>  This is the generated AI story. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis urna vitae mauris tempus posuere at at lectus. Nulla facilisi. In hendrerit ligula vitae dui luctus venenatis. Phasellus fermentum, neque a varius facilisis, libero risus malesuada odio, eu euismod lectus lectus in velit. Fusce egestas elit at risus faucibus, ac pharetra odio volutpat. Nam ac bibendum odio, vel bibendum elit. Duis vel odio leo.</p>
       </div>
       <div class="story-buttons">
         <button class="download-button" onclick="downloadStory()">Download</button>
