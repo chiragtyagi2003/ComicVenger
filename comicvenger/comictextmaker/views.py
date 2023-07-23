@@ -33,4 +33,8 @@ def story(request):
     return render(request, 'comictextmaker/story.html', {'random_image': random_image})
 
 def about(request):
-    return render(request, 'comictextmaker/about.html')
+    return render(request, 'comictextmaker/about.html') 
+
+
+def generateStory(request):
+    
